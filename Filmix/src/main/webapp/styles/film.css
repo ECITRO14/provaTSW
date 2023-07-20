@@ -1,0 +1,102 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: #343F71;
+	margin: 0;
+}
+
+.container {
+	flex: 1;
+}
+
+/* SCHERMO NORMALE */
+
+.content {
+	height: 580px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.imgClass {
+	height: 80%;
+	width: 40%;
+	margin-left: 2%;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+	height:90%;
+	width: 100%;
+	justify-content: space-around;
+    align-items: center;
+}
+
+.descrizione {
+	display: flex;
+	flex-direction: column;
+	margin-left: 2%;
+	color: white;
+	width: 95%;
+	border: 3px solid #fee36e;
+	background-color:#2a2a2a;
+	margin-bottom:0%;
+}
+
+.h{
+	color: #fee36e;
+	margin-bottom:0%;
+	margin-top:0%;
+	margin-left:1%;
+}
+
+.p{
+	margin-top:0%;
+	margin-left:1%;
+	
+}
+.seleziona{
+	display:flex;
+	flex-direction:row;
+	width: 95%;
+	align-items: flex-start;
+}
+
+#quantitySelect{
+	border-radius:5px;
+	font-size: 18px;
+    width: 5%;
+    text-align: center;
+    margin-left: 1%;
+}
+
+.acquista{
+	margin-top:0%;
+	border-radius:15px;
+	height:10%;
+	width:20%;
+	font-size: 20px;
+	padding: 7px 10px;
+	background-color: #fee36e;
+	color: #2a2a2a;
+	cursor: pointer;
+	color:#2a2a2a;
+}
+
+
+#buyButton:hover{
+	opacity:0.85;	
+}
+
+	
+#buyButton:active{
+	border:none;
+	 outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #fee36e;
+	
+}
+

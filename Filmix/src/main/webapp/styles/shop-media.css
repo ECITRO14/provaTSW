@@ -1,0 +1,100 @@
+@media screen and (max-width: 1200px){
+	.logo-img{
+	width:100px;
+	height:100%;
+	cursor:pointer;
+}
+
+
+.login button{
+	border:none;
+	padding: 9px 9px;
+	background-color:#555555;
+	text-decoration:none;	
+	border-radius:25px;
+	min-width:50px;
+	width:75px;
+	cursor:pointer;
+	margin-right:5px;
+	font-weight:bold;
+	color:white;
+	border-style: solid;
+	font-size:12px;
+}
+
+.cart-img{
+	width:40px;
+	padding:1px;
+	border-radius:50px;
+	height:40px;
+	background-color:#fee36e;
+	}
+}
+
+
+
+
+@media screen and (max-width: 800px){
+	
+	.logo-img{
+	width:100px;
+	height:100%;
+	cursor:pointer;
+}
+
+.login button{
+	border:none;
+	padding: 9px 9px;
+	background-color:#555555;
+	text-decoration:none;	
+	border-radius:25px;
+	min-width:50px;
+	width:75px;
+	cursor:pointer;
+	margin-right:5px;
+	font-weight:bold;
+	color:white;
+	border-style: solid;
+	font-size:12px;
+}
+
+.cart-img{
+	width:40px;
+	padding:1px;
+	border-radius:50px;
+	height:40px;
+	background-color:#fee36e;
+	}
+}
+@media screen and (max-width: 600px){
+	
+	.logo-img{
+	width:80px;
+	height:100%;
+	cursor:pointer;
+}
+
+.login button{
+	border:none;
+	padding: 9px 4px;
+	background-color:#555555;
+	text-decoration:none;	
+	border-radius:25px;
+	min-width:50px;
+	width:55px;
+	cursor:pointer;
+	margin-right:5px;
+	font-weight:bold;
+	color:white;
+	border-style: solid;
+	font-size:9px;
+}
+
+.cart-img{
+	width:30px;
+	padding:1px;
+	border-radius:50px;
+	height:30px;
+	background-color:#fee36e;
+}
+}

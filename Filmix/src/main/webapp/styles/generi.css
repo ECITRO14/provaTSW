@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: #343F71;
+	margin:           0;
+}
+
+.container{
+	flex:1;
+}
+
+	/*SCHERMO NORMALE*/
+
+
+
+.content{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.main{
+	display:flex;
+	width:70%;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	background-color:#2a2a2a;
+}
+
+
+
+.film{
+	width: 100%;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;	
+	color:white;
+	margin-top:1%;
+	border-bottom: solid;
+	
+}
+
+.film-a{
+	height:200px;
+	width: 20%;
+	margin-right:5%;
+}
+
+.imgClass{
+	height:100%;
+	width:100%;
+}
+
+.descrizione{
+	width: 70%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}

@@ -1,0 +1,96 @@
+@charset "ISO-8859-1";
+ #buttonRegistrazione{
+	 	background-color: #373e98;	
+	 	border-color: #373e98;
+	 	
+}
+
+#buttonAccedi{
+	border-color: #373e98;
+	font-weight:bold;
+	background-color:transparent;
+	color:white;
+	
+}
+
+.cerca:hover{
+	background-color:#fed52e;
+	}
+	
+.cerca:active{
+	border:none;
+	 outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #fee36e;
+	
+}
+
+#buttonRegistrazione:hover{
+	 border-color: #545cc0;
+	 background-color: #545cc0;
+     transition: 0.7s;
+}
+
+
+
+#buttonAccedi:hover{
+	 border-color: #545cc0;
+	 background-color: #545cc0;
+     transition: 0.7s;
+}
+
+.cart-img:hover{
+	 background-color: #fff7d7;
+     transition: 0.7s;
+}
+
+.cart-img:active{
+	 outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #fff7d7;
+}
+#novita:hover {
+      background-color: #ceb92c;
+      transition: 0.7s;
+       color: white;
+  }
+#novita:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #FFFFFf;
+  }
+  #novita:active {
+    background-color: #fee36e;
+}
+
+
+ #venduti:hover {
+     background-color: #ceb92c;
+      transition: 0.7s;
+      color: white;
+  }
+#venduti:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #FFFFFf;
+  }
+  #venduti:active {
+    background-color: #fee36e;
+    
+}
+
+
+.acquista:hover{
+		background-color:#fed52e;
+	
+}
+
+	
+.acquista:active{
+	border:none;
+	 outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #fee36e;
+	
+}
+
