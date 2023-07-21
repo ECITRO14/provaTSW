@@ -29,8 +29,9 @@ public class FilmixDatabase {
     }
 
     public ResultSet executeQuery(String query) throws SQLException {
-        Statement statement = connection.createStatement();
-        return statement.executeQuery(query);
+         
+    	try(Statement statement = connection.createStatement()){
+        return statement.executeQuery(query);}
     }
 
     public Connection getConnection() {
