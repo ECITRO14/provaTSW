@@ -63,8 +63,12 @@ header{
 .label{
 	 margin-top: auto;
 }
+#alert{
+	color:red;
+	font-size:15px;
+}
 
-.continua{
+.registrati{
 	margin-top:10px;
 	margin-bottom:10px;
 	background-color:#fee36e;
@@ -72,10 +76,11 @@ header{
 	height:8%;
 	border-radius:20px;
 	margin-top: auto;
+	cursor:pointer;
 	
 }
 
-.continua:hover{
+.registrati:hover{
 	opacity:0.5;
 }
 

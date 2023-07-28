@@ -1,24 +1,45 @@
-document.getElementById("registrationForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Evita il ricaricamento della pagina
+let formIsValid;
 
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("psw").value;
-  var verifica = document.getElementById("verifica").value;
+function validator() {
+ let password = document.getElementById("psw").value;
+ let alertElement=document.getElementById("errorPsw");
+ 
+   alertElement.innerHTML = "";
+
+ if (password.length < 8) {
+    alertElement.innerHTML="La password deve contenere almeno 8 caratteri";
+    formIsValid=false;
+    return;
+  }
+ if (!password.match(/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$/)) {
+     alertElement.innerHTML="La password deve essere alfanumerica.";
+     formIsValid=false;
+    return;
+  }
+   if(password.length >= 8 &&  password.match(/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$/))
+	    formIsValid = true;
+
+}
+
+
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+
+  let name = document.getElementById("name").value;
+  let surname = document.getElementById("surname").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("psw").value;
+  let verifica = document.getElementById("verifica").value;
+	
 
 	if(password!==verifica){
 		alert("Le password non corrispondono");
+   		 event.preventDefault(); // Interrompe l'invio del form se le password non corrispondono
 		return;
 	}
-
+		
 	
-	
-  // Esegui l'elaborazione dei dati del form
-  // Ad esempio, puoi inviare una richiesta AJAX al server per registrare l'account
-
-  // Resetta i campi del form
-  document.getElementById("registrationForm").reset();
-
-  // Mostra un messaggio di successo o reindirizza l'utente alla pagina successiva
-  alert("Account registrato con successo!");
+	 if (!formIsValid) {
+    event.preventDefault(); 
+    return;
+  }
 });

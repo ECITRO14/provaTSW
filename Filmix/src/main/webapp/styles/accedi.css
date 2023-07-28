@@ -65,7 +65,7 @@ header{
 	 margin-top: auto;
 }
 
-.continua{
+.accedi{
 	align-self: center;
 	height:8%;
 	width:50%;
@@ -73,9 +73,10 @@ header{
 	border:none;
 	border-radius:20px;
 	margin-top: auto;
+	cursor:pointer;
 }
 
-.continua:hover{
+.accedi:hover{
 	opacity:0.5;
 }
 
@@ -95,6 +96,8 @@ header{
 	background-color:#fee36e;
 	border:none;
 	border-radius:20px;
+		cursor:pointer;
+	
 }
 
 .registrazione:hover{

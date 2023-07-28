@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 		<header>
-     		<%@include file="html/header.html"%>
+     		<%@include file="html/header.jsp"%>
    		</header>
 		<div class="content">
 				<div class="button-group">

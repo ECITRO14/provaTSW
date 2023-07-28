@@ -153,6 +153,13 @@ header{
 	
 }
 
+.logout{
+	color:white;
+}
+
+.logout:hover{
+	color:#fee36e;
+}
 
 .carrello{
 	display: flex;

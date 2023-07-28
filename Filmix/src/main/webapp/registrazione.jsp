@@ -14,27 +14,38 @@
 		<header>
      			<a href="home.jsp" class="logo-link"><img class="logo-img" id="headerLogo" src="images/filmix.jpg" alt="Filmixlogo image"></a>
 		</header>
-		<form class="content" id="registrationForm">
-			<div class="h1">
-				<H1> Crea Account	</H1>
-			</div>
-			<div class=inputForm>
-				<label class="label"  for="name"> Nome </label>
-				<input class="input" type="text" id="name" required>
-				<label class="label" for="email"> Email </label>
-				<input class="input"type="email" id="email"required>
-				<label class="label" for="psw"> Password </label>
-				<input class="input" type="password" id="psw"required>
-				<label class="label"  for="verifica"> Verifica Password </label>
-				<input class="input"type="password"id="verifica" required>
-				<button type="submit" class="continua">Continua</button>
-			</div>
-		</form>
+<form class="content" id="registrationForm" action="RegistrazioneServlet" method="post">
+    <div class="h1">
+        <h1>Crea Account</h1>
+    </div>
+    <div class="inputForm">
+        <label class="label" for="name">Nome</label>
+        <input class="input" type="text" id="name" name="name" required>
+        
+        <label class="label" for="surname">Cognome</label>
+        <input class="input" type="text" id="surname" name="surname" required>
+        
+        <label class="label" for="email">Email</label>
+        <input class="input" type="email" id="email" name="email" required>
+        
+        
+        <label class="label" for="psw">Password</label>
+        <input class="input" type="password" onkeyup="validator()" id="psw" name="psw" required>
+        <span id="errorPsw"></span>
+        
+        <label class="label" for="verifica">Verifica Password</label>
+        <input class="input" type="password" id="verifica" name="verifica" required>
+        
+        <input type="submit" class="registrati" value="Registrati">
+    </div>
+</form>
 	</div>
-		
+			<% if (request.getAttribute("error") != null) { %>
+       <p style="color: red;"><%=request.getAttribute("error")%></p>
+    <% } %>
 	<footer>
    		<%@include file="html/footer.html"%>
     </footer>	
-    <script src="scripts/registrazione.js"></script>
+ <script src="scripts/registrazione.js"></script>   
 </body>
 </html>

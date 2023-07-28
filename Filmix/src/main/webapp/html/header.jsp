@@ -1,4 +1,11 @@
-
+<html>
+<head>
+     <script src="scripts/logout.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
         <a href="home.jsp" class="logo-link"><img class="logo-img" id="headerLogo" src="images/filmix.jpg" alt="Filmixlogo image"></a>
         <nav>
             <ul class="dropdown">
@@ -23,18 +30,27 @@
             <input type="text" placeholder="Ricerca Filmix.it">
             <button type="submit" class="cerca">Cerca</button>
         </div>
-
-        <div class="login">
-            <a href="registrazione.jsp">
-                <button class="registrati" id="buttonRegistrazione">Registrati</button>
-            </a>
-            <a href="accedi.jsp">
-                <button class="accedi" id="buttonAccedi">Accedi</button>
-            </a>
-        </div>
+	<% if (session.getAttribute("name") != null) { %>
+    <p style="color: white;">Ciao, <%=session.getAttribute("name")%> <%=session.getAttribute("surname")%></p>
+    <p class="logout" id="logout">Logout</p> 
+	<% } else { %>
+    <div class="login">
+        <a href="registrazione.jsp">
+            <button class="registrati" id="buttonRegistrazione">Registrati</button>
+        </a>
+        <a href="accedi.jsp">
+            <button class="accedi" id="buttonAccedi">Accedi</button>
+        </a>
+    </div>
+	<% } %>
         <div class="carrello">
             <a href="shop.jsp" class="cart-link">
                 <img class="cart-img" id="cartLogo" src="images/cart.png" alt="Filmixcart image">
             </a>
             <p class="cart-text"> Carrello</p>
         </div>
+      </header>
+   </div>
+ </body>
+</html>
+        
