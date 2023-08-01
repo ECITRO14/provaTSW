@@ -53,17 +53,20 @@
                     String base64Image = Base64.getEncoder().encodeToString(imageBytes);
                     outputStream.close();
                     String titoloModificato = titolo.replace("'", "&#39;");
-                    
-                    out.println("<div class='film'>");           
-                    out.println("<a class='film-a' href='film.jsp?titolo="+titoloModificato+"'><img class='imgClass' src='data:image/jpeg;base64," + base64Image + "' alt='Immagine'></a>");
-                    out.println("<div class='descrizione'>");    
-                    out.println("<h3>"+titoloModificato+"</h3>");
-                    out.println("<p>"+trama+"</p>");
-                    out.println("</div>");
-                    out.println("</div>");
+                    %>
+                    <div class='film'>           
+                    <a class='film-a' href='film.jsp?titolo=<%=titoloModificato%>'><img class='imgClass' src='data:image/jpeg;base64,<%=base64Image%>' alt='Immagine'></a>
+                     <div class='descrizione'>    
+                    	<h3><%=titoloModificato%></h3>
+                    	<p><%=trama%></p>
+                   	 </div>
+                    </div>
+                    <% 
             }
           }
-            out.println("</div>");
+            %>
+          </div>
+            <%
         }
             catch (SQLException e) {
             e.printStackTrace();
@@ -72,8 +75,6 @@
         }
         %>
     </div>
-    </div>
-
 	<footer>
     	<%@include file="html/footer.html"%>
 	</footer>

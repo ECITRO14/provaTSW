@@ -1,11 +1,12 @@
 package control;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import java.sql.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,20 +16,24 @@ import it.unisa.FilmixDatabase;
 @WebServlet("/RegistrazioneServlet")
 public class RegistrazioneServlet extends HttpServlet {
 	/**
-	 * 
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 *
 	 */
 	public RegistrazioneServlet() {
 		super();
 	}
-	
+
 	private String toHash(String password) {
 		String hashString=null;
 		try {
 			java.security.MessageDigest digest=java.security.MessageDigest.getInstance("SHA-512");
 			byte [] hash=digest.digest(password.getBytes(StandardCharsets.UTF_8));
 			hashString= "";
-			for(int i=0;i< hash.length;i++) {
-				hashString += Integer.toHexString((hash[i]&0xFF)|0x100).toLowerCase().substring(1,3);
+			for (byte element : hash) {
+				hashString += Integer.toHexString((element&0xFF)|0x100).toLowerCase().substring(1,3);
 			}
 		}
 		catch(java.security.NoSuchAlgorithmException e) {
@@ -36,6 +41,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		}
 		return hashString;
 	}
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
@@ -51,7 +57,7 @@ public class RegistrazioneServlet extends HttpServlet {
             ResultSet emailResult = checkEmailStatement.executeQuery();
             emailResult.next();
             int emailCount = emailResult.getInt(1);
-            
+
             if (emailCount > 0) {
                 // L'email esiste già nel database, mostra un messaggio di errore
                 request.setAttribute("error", "L'email inserita è già utilizzata da un altro utente.");

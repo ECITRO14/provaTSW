@@ -2,11 +2,13 @@ package control;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import java.sql.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,19 +17,25 @@ import it.unisa.FilmixDatabase;
 
 @WebServlet("/AccessoServlet")
 public class AccessoServlet extends HttpServlet {
-    
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	public AccessoServlet() {
 		super();
 	}
-	
+
 	private String toHash(String password) {
 		String hashString=null;
 		try {
 			java.security.MessageDigest digest=java.security.MessageDigest.getInstance("SHA-512");
 			byte [] hash=digest.digest(password.getBytes(StandardCharsets.UTF_8));
 			hashString= "";
-			for(int i=0;i< hash.length;i++) {
-				hashString += Integer.toHexString((hash[i]&0xFF)|0x100).toLowerCase().substring(1,3);
+			for (byte element : hash) {
+				hashString += Integer.toHexString((element&0xFF)|0x100).toLowerCase().substring(1,3);
 			}
 		}
 		catch(java.security.NoSuchAlgorithmException e) {
@@ -35,9 +43,10 @@ public class AccessoServlet extends HttpServlet {
 		}
 		return hashString;
 	}
-    
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+    @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("psw");
@@ -51,7 +60,7 @@ public class AccessoServlet extends HttpServlet {
             if (resultSet.next()) {
                 // L'utente con l'email specificata esiste nel database
                 String pass = resultSet.getString("psw");
-                
+
                 // Verifica la password utilizzando l'algoritmo di hashing
                 if(pass.equals(password)) {
                     // Autenticazione riuscita

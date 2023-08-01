@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class FilmixDatabase {
     private String url = "jdbc:mysql://localhost:3306/filmix";
@@ -12,11 +13,16 @@ public class FilmixDatabase {
     private String password = "root";
     private Connection connection;
     private static FilmixDatabase instance;
+    private static final Logger LOGGER = Logger.getLogger(FilmixDatabase.class.getName());
 
+    
     public FilmixDatabase() {
-        try {
+    	try {
+    		Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
+            LOGGER.info("Database connection established successfully.");
+        } catch (Exception e) {
+            LOGGER.severe("Error while establishing the database connection: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -29,7 +35,7 @@ public class FilmixDatabase {
     }
 
     public ResultSet executeQuery(String query) throws SQLException {
-         
+
     	try(Statement statement = connection.createStatement()){
         return statement.executeQuery(query);}
     }
